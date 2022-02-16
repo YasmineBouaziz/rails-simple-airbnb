@@ -40,13 +40,24 @@
               <span class="visually-hidden">Next</span>
             </button>
           </div>
-<div class="card-category">
+<div class="card-category p-2">
+  <div class="card p-4" style="background-color: #f5f5f5;">
   <div class="flat-title"></div>
     <h1><%= @flat.name %></h1>
     <p><%= @flat.address %></p>
-  <div class="details">
-    <p><%= @flat.description %></p>
   </div>
+  </div>
+
+  <div class="card-category p-2">
+  <div class="card p-4" style="background-color: #f5f5f5;">
+  <div class="flat-title"></div>
+  <div class="details">
+  <h2>A bit more about this flat ...</h2>
+    <p><%= @flat.description %></p>
+     </div>
+  </div>
+    </div>
+
 </div>
 </body>
 </html>

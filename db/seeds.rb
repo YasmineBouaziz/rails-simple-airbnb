@@ -8,13 +8,15 @@
 require 'faker'
 
 Flat.destroy_all
+
 puts 'loading'
 
-4.times do
+9.times do
   flat = Flat.create!(
     name: Faker::Address.city,
     address: Faker::Address.street_address,
-    description: 'brand new flat for renting',
+    description: 'A lovely summer feel for this spacious garden flat. Double bedrooms, open plan living area, large kitchen and a beautiful conservatory.',
+
     price_per_night: rand(150..500),
     number_of_guests: rand(1..5))
   flat.save
