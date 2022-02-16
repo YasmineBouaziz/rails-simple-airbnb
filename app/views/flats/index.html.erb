@@ -5,8 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
-  <title>Document</title>
+<script src="https://kit.fontawesome.com/42d0deab46.js" crossorigin="anonymous"></script>  <title>Document</title>
 </head>
 <body>
     <div class="navbar border-bottom border-4 pb-4">
@@ -18,21 +17,43 @@
 
 
 
-    <div class="container p-4">
-  <div class="row justify-content-md-center">
-    <div class="col col-lg-2">
-        <% @flats.each do |flat| %>
-          <h3><%= link_to flat.name, flat_path(flat)%></h3><p><%= flat.description %></p>
-          <p><%= flat.number_of_guests %> - <%= flat.price_per_night %></p>
-          <%= link_to "Edit", edit_flat_path(flat), class: 'text-danger' %>
-          <%= link_to "Delete",
+
+ <div class="row p-5">
+    <% @flats.each do |flat| %>
+      <div class="col-4 p-4">
+        <div class="card p-3">
+          <div class="flat-card-content">
+            <div class="flat-card-title">
+              <h4><%= flat.name %></h4>
+            </div>
+            <p><%= flat.address %></p>
+            <div class="flex">
+              <div class="flex p-1">
+              <p>guests: <%= flat.number_of_guests %></p>
+              </div>
+                <div class="flex p-1">
+              <span>price per night: <%= flat.price_per_night %></span>
+            </div>
+              </div>
+
+          </div>
+          <div class="flat-card-actions">
+            <%= link_to 'More info', flat_path(flat) %>
+            <%= link_to "Edit", edit_flat_path(flat), class: 'text-danger' %>
+            <%= link_to "Delete",
             flat_path(flat),
             method: :delete,
             data: { confirm: "Are you sure you want to delete #{flat.name}?" },
             class: 'text-danger' %>
-          <% end %>
-    </div>
+
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
+
+
+
     </body>
 </html>
